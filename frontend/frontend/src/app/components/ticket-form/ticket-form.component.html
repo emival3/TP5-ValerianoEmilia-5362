@@ -1,0 +1,33 @@
+<div  style="background-color: #fdfd96; ">
+    <div style="padding-left:30%; padding-top: 2%;padding-bottom: 2%;">
+        <form class="formstyle" style="padding: 5%;">
+        <h1>Formulario Ticket</h1>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio del Ticket: </label>
+        <input type="number" class="form-control" id="precio"  required
+            placeholder="Ingrese precio del ticket" name="precioTicket" [(ngModel)]="ticket.precioTicket">
+    </div>
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria Espectador: </label>
+        <input type="text" class="form-control" id="categoria" name="categoriaEspectador" required
+            placeholder="Ingrese categoria del espectador" [(ngModel)]="ticket.categoriaEspectador">
+    </div>
+    <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha de Compra:</label>
+        <input type="text" class="form-control" id="fecha" name="fechaCompra" required
+            placeholder="Ingrese fecha de compra" [(ngModel)]="ticket.fechaCompra">
+    </div>
+    <div class="mb-3">
+        <label for="espectador" class="form-label text-white">Espectador:</label>
+        <select class="form-select" id="espectador" name="espectador"  [(ngModel)]="ticket.espectador">
+            <option *ngFor="let espectador of espectadores" [ngValue]="espectador">{{espectador.apellido}}, {{espectador.nombre}}</option>
+        </select>
+    </div>
+    
+    <button *ngIf="accion=='new'" type="submit" class="btn btn-success" (click)="guardarTicket()">Registrar Ticket</button>
+    <button *ngIf="accion=='update'" type="submit" class="btn btn-warning" (click)="modificarTicket()">Modificar Ticket</button>
+    <button type="submit" class="btn btn-danger ms-2" (click)="cancelar()">Cancelar</button>
+
+      </form>
+    </div>
+</div>

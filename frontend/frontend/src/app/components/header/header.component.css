@@ -1,0 +1,31 @@
+.headerstyle h1{
+    background-color: #98b8b4;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    line-height: 200px;
+    color: #fff;
+    font-size: 50px;
+}
+.navstyle{
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    padding: 0%;
+    background-color: #e85ae3;
+    border-bottom: 5px solid #fff;
+    margin:auto;
+}
+.navstyle li a{
+    text-decoration: none;
+    color: #000;
+    padding: 20px;
+    display: block;
+}
+
+.navstyle li{
+    display: inline-block;
+    text-align: center;
+}
+.navstyle li a:hover{
+    background: #ef8354
+}

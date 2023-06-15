@@ -1,0 +1,52 @@
+<div style="background-color: #fdfd96;">
+   
+    <div class="text-center" style="background-color: #84b6f4;padding: 30px;">
+        TRANSACCIONES
+    </div>
+<br>
+
+    <div style="padding-left: 42%;">
+        <button type="button" class="btn btn-success" (click)="agregarTransaccion()">AGREGAR TRANSACCION</button>
+    </div>
+    
+        <form class="p-3 m-3" >
+            <div style="padding-left: 40%;" class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Ingresar Moneda Origen:</label>
+                    <select style="width:30%;" name="monedaDestinno" class="form-select" id="moneda2" [(ngModel)]="monedaOrigen" (ngModelChange)="obtenerTransaccionesPorFiltro()">
+                        <option value="">Mostrar Todas</option>
+                        <option *ngFor="let m of monedas" value="{{m.symbol}}">{{m.symbol}}-{{m.name}}</option>
+                    </select>
+            </div>
+            <div style="padding-left: 40%;" class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Ingresar Moneda Destino:</label>
+                    <select style="width:30%;" name="monedaDestinno" class="form-select" id="moneda2" [(ngModel)]="monedaDestino" (ngModelChange)="obtenerTransaccionesPorFiltro()">
+                        <option value="">Mostrar Todas</option>
+                        <option *ngFor="let m of monedas" value="{{m.symbol}}">{{m.symbol}}-{{m.name}}</option>
+                    </select>
+            </div>
+        </form>
+
+        <table class="table table-bordered table-hover border-primary mt-5" >
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">MONEDA ORIGEN</th>
+                    <th scope="col">MONEDA DESTINO</th>
+                    <th scope="col">CANTIDAD ORIGEN</th>
+                    <th scope="col">CANTIDAD DESTINO</th>
+                    <th scope="col">EMAIL CLIENTE</th>
+                    <th scope="col">TASA CONVERSION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of transacciones">
+                    <td>{{t.monedaOrigen}}</td>
+                    <td>{{t.monedaDestino}}</td>
+                    <td>{{t.cantidadOrigen}}</td>
+                    <td>{{t.cantidadDestino}}</td>
+                    <td>{{t.emailCliente}}</td>
+                    <td>{{t.tasaConversion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>

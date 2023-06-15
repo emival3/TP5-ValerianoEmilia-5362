@@ -1,0 +1,89 @@
+
+<div style="background-color: #fdfd96;">
+  <div style="padding-left:30%; padding-top: 2%;padding-bottom: 2%;">
+   
+    <form #productoForm="ngForm" class="formstyle" style="padding: 5%;">
+      <h1>Formulario para cargar un producto</h1>
+
+      <div class="mb-3">
+          <label for="idnombre" class="form-label">Nombre</label>
+          <input name="nombre" type="text" class="form-control" id="idnombre"[(ngModel)]="producto.nombre" required #nombre="ngModel" >
+                  <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+                      class="row alert alert-danger">
+                        <div *ngIf=" nombre.errors?.['required']">
+                                Nombre Requerido.
+                        </div>
+                        <div *ngIf=" nombre.errors?.['minlength']">
+                          Nombre, no menos de 4 caracteres.
+                        </div>
+                  </div>
+      </div>
+
+        <div class="mb-3">
+          <label for="idfuncion" class="form-label">Descripcion</label>
+          <textarea name="descripcion" class="form-control" id="idfuncion" rows="3"
+          [(ngModel)]="producto.descripcion" required #descripcion="ngModel"></textarea>
+          
+            <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+              class="row alert alert-danger">
+                <div *ngIf=" descripcion.errors?.['required']">
+                    Descripcion Requerido.
+                </div>
+                <div *ngIf=" descripcion.errors?.['minlength']">
+                  Descripcion, no menos de 4 caracteres.
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="idemail" class="form-label">Ingresar url de la imagen</label>
+          <input name="email" type="text" class="form-control" id="idemail"
+          [(ngModel)]="producto.imagen" required #url="ngModel">
+
+          <div *ngIf="url.invalid && (url.dirty || url.touched)"
+              class="row alert alert-danger">
+                <div *ngIf=" url.errors?.['required']">
+                    URL Requerido.
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="idemail" class="form-label">Precio</label>
+          <input name="precio" type="number" class="form-control" id="idemail"
+          [(ngModel)]="producto.precio" required #precio="ngModel">
+
+          <div *ngIf="precio.invalid && (precio.dirty || precio.touched)"
+              class="row alert alert-danger">
+                <div *ngIf=" precio.errors?.['required']">
+                    Precio Requerido.
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="idemail" class="form-label">Stock</label>
+          <input name="stock" type="number" class="form-control" id="idemail"
+          [(ngModel)]="producto.stock" required #email="ngModel">
+
+          <div *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="row alert alert-danger">
+                <div *ngIf=" email.errors?.['required']">
+                  Stock Requerido.
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" name="destacado" [(ngModel)]="producto.destacado" required #destacado="ngModel">
+          <label class="form-check-label" for="exampleCheck1" >¿Producto Destacado?</label>
+          
+        </div>
+      
+        <button type="submit" class="btn btn-primary" (click)="guardarProducto()" [disabled]="productoForm.invalid">Cargar Producto</button>    
+        <button type="submit" class="btn btn-danger ms-2" (click)="cancelar()">Cancelar</button>         
+  </form>
+    
+</div>
+</div>
+

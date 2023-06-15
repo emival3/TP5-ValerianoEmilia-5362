@@ -1,0 +1,42 @@
+<div style="background-color: #fdfd96;">
+    <div class="text-center" style="background-color: #84b6f4;padding: 30px;">
+        TICKETS
+      </div>
+      <br>
+      <div style="align-items: center;padding-left: 40%;">
+        <h5>Filtrar Tickets por Categoria</h5>
+    <select class="form-select" aria-label="Default select example" style="width: 30%;" [(ngModel)]="categoriaEspectador" (ngModelChange)="obtenerTicketsPorCategoria()">
+        <option value="">Mostrar Todos</option>
+        <option value="local">Local</option>
+        <option value="extranjero">Extranjero</option>
+      </select>
+      <br>
+      <div style="padding-left: 5%;">
+        <button type="button" class="btn btn-success" (click)="agregarTicket()">AGREGAR TICKET</button>  
+      </div>
+      </div>
+    <table class="table table-bordered table-hover border-primary mt-5">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">PRECIO</th>
+                <th scope="col">CATEGORIA ESPECTADOR</th>
+                <th scope="col">FECHA DE COMPRA</th>
+                <th scope="col">ESPECTADOR</th>
+                <th scope="col">Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tick of tickets">
+                <td>{{tick.precioTicket}}</td>
+                <td>{{tick.categoriaEspectador}}</td>
+                <td>{{tick.fechaCompra}}</td>
+                <td>{{tick.espectador.apellido}}, {{tick.espectador.nombre}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning" (click)="modificarTicket(tick)">MODIFICAR TICKET</button>
+                    <button type="button" class="btn btn-danger" (click)="eliminarTicket(tick)">ELIMINAR TICKET</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
